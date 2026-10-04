@@ -1,5 +1,4 @@
 import React from 'react'
-// import './Tarjeta.css'
 import iguana from '../assets/iguana.jpg';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -8,21 +7,15 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-function Tarjeta({nombreUsuario="Nombre", correo="nombre@correo.com"}) {
+function Tarjeta({
+  nombreUsuario = "Nombre",
+  correo = "nombre@correo.com",
+  descripcion = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, cupiditate?",
+}) {
   return (
-    /* <div className='tarjeta'>
-        <img src="" alt="Aquí va una imagen" />        
-        <h2>Titulo:{titulo}</h2>
-        <p>Contexto:{parrafo}</p>
-    </div>  */
-    <>
-      <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image={iguana}
-        title="green iguana"
-      />
-      <CardContent>
+    <Card sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <CardMedia sx={{ height: 140 }} image={iguana} title="green iguana" />
+      <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="div">
           {nombreUsuario}
         </Typography>
@@ -30,14 +23,13 @@ function Tarjeta({nombreUsuario="Nombre", correo="nombre@correo.com"}) {
           {correo}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, cupiditate?
+          {descripcion}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Ver más...</Button>        
+        <Button size="small" variant="contained">Ver más...</Button>
       </CardActions>
-    </Card>    
-    </>
+    </Card>
   )
 }
 
